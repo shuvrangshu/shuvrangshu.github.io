@@ -2705,11 +2705,17 @@
 		
 		    // Serialize the data in the form
 		    var serializedData = $form.serialize();
-    		
+    		alert(serializedData);
     		 $.ajax({
         		url: "https://script.google.com/macros/s/AKfycbwyPlJkaWYBbOvq6H7I2cUrSjUGYBvrlnSzJUfRuj717QUZFk5_/exec",
         		type: "post",
-        		data: serializedData
+        		data: serializedData,
+        		success: function(data) {
+        			alert(data);
+        		},
+        		error: function(e){
+        			alert(e);
+        		}
     		});
 	});
     </script>
