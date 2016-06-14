@@ -2611,7 +2611,7 @@
                           <!-- // contact_table_block -->
                           <!-- Contact Form -->
                           <div class="contact_form">
-                            <form class="" action="https://docs.google.com/forms/d/1bDv8pnIZq_9t68UfrhkNK8ZcOHGXB2EvCqs1YlnV3Ks/viewform">
+                            <form class="">
                               <div class="row">
                                 <div class="col-md-5">
                                   <div class="form_input">
@@ -2692,9 +2692,26 @@
     <script type="text/javascript" src="js/switch.min.js"></script>
     <script type="text/javascript" src="js/hamzh.js"></script>
     <script>
-    /*	$("form").submit(function(){
-    	 	window.location = 'mailto:' + mail= + '?subject=' + 'subject' + '&body=' + message=;
-	});*/
+    	$("form").submit(function(){
+    		 // Abort any pending request
+		    if (request) {
+		        request.abort();
+		    }
+		    // setup some local variables
+		    var $form = $(this);
+		
+		    // Let's select and cache all the fields
+		    var $inputs = $form.find("input, select, button, textarea");
+		
+		    // Serialize the data in the form
+		    var serializedData = $form.serialize();
+    		
+    		 $.ajax({
+        		url: "https://script.google.com/macros/s/AKfycbwyPlJkaWYBbOvq6H7I2cUrSjUGYBvrlnSzJUfRuj717QUZFk5_/exec",
+        		type: "post",
+        		data: serializedData
+    		});
+	});
     </script>
   </body>
 </html>
